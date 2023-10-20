@@ -1,0 +1,32 @@
+#
+# Example 1.0
+#
+
+
+SUMMARY = "Example Library for Audio"
+DESCRIPTION = "Small bb file for coding exercise"
+HOMEPAGE = "https://github.com/example"
+AUTHOR = "Albert Einstein <aeinstein@example.com>"
+
+LICENSE = "MIT"
+
+DEPENDS += "\
+	boost \
+	openssl \
+"
+
+PV = "1.0.0"
+
+SRC_URI = "https://github.com/example"
+SRCREV = "982493977913919797917912773213"
+
+inherit cmake python3-dir
+
+S = "${WORKDIR}/git"
+
+EXTRA_OECMAKE = "\
+    -DPYTHON_SITE_PACKAGES_PATH=${PYTHON_SITEPACKAGES_DIR} \
+"
+
+RDEPENDS= "python3-core python3-systemd"
+
